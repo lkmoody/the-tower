@@ -5,13 +5,24 @@
       <h1 class="my-5 bg-dark text-white p-3 rounded text-center">
         Vue 3 Starter
       </h1>
+      <button @click="testComment">Test Comment</button>
     </div>
   </div>
 </template>
 
 <script>
+import { commentService } from '../services/CommentService.js';
+
 export default {
-  name: 'Home'
+  name: 'Home',
+  setup() {
+    async function testComment() {
+      const res = commentService.getComment();
+    }
+    return {
+      testComment
+    }
+  }
 }
 </script>
 
